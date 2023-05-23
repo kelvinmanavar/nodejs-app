@@ -13,7 +13,7 @@ pipeline {
  
                 // Build the Docker image
                 script {
-                    docker.withRegistry('https://registry.hub.docker.com', ${DOCKER_HUB_CREDENTIALS}) {
+                    docker.withRegistry('https://registry.hub.docker.com', DOCKER_HUB_CREDENTIALS) {
                         def dockerImage = docker.build("${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}")
                         dockerImage.push()
                     }
