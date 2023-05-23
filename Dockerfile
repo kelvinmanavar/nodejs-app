@@ -4,7 +4,7 @@ FROM node:latest
 
 # Set the working directory in the container
 WORKDIR /var/www
-COPY package*.json ./
+
 # Copy package.json and package-lock.json to the container
 
 # Copy the rest of the app source code to the container
