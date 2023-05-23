@@ -19,7 +19,7 @@ pipeline {
                 sh 'docker rm node-app-container || true'
 
                 // Run the Docker container
-                sh 'docker run -d --name node-app-container -p 3000:3000 node-app'
+                sh 'docker run -d --name node-app-container -p 8000:8000 node-app'
             }
         }
     }
