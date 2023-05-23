@@ -22,4 +22,4 @@ COPY . .
 EXPOSE 3000
 
 # Specify the command to run your app
-CMD ["node", "dist/index.js"]
+CMD ["node", "index.js"]
