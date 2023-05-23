@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         DOCKER_HUB_CREDENTIALS = 'docker-hub-credentials' // Jenkins credentials ID for Docker Hub
-        DOCKER_IMAGE_NAME = 'kelvinmanavar/nodejsrepo/node-app' // Replace with your Docker Hub repository name
+        DOCKER_IMAGE_NAME = 'kelvinmanavar/node-app' // Replace with your Docker Hub repository name
         DOCKER_IMAGE_TAG = 'latest' // Replace with your desired image tag
     }    
     stages {
@@ -24,7 +24,7 @@ pipeline {
         stage('Push Image') {
             steps {
                 // Push the Docker image to a registry
-                sh 'docker push kelvinmanavar/nodejsrepo/node-app'
+                sh 'docker push kelvinmanavar/node-app'
             }
         }
         stage('Deploy') {
@@ -35,8 +35,8 @@ pipeline {
                         // SSH into each EC2 instance and pull the latest Docker image
                     sh '''
                         ssh -o StrictHostKeyChecking=no ubuntu@ec2-13-127-29-25 <<EOF
-                        docker pull kelvinmanavar/nodejsrepo/node-app
-                        docker run -d --name node-app-container -p 8000:8000 kelvinmanavar/nodejsrepo/node-app
+                        docker pull kelvinmanavar/node-app
+                        docker run -d --name node-app-container -p 8000:8000 kelvinmanavar/node-app
                         EOF
                     '''
                     }
