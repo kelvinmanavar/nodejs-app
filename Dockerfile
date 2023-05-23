@@ -17,4 +17,4 @@ RUN npm install
 EXPOSE 5000
 
 # Specify the command to run your app
-ENTRYPOINT ["npm","start"]
+ENTRYPOINT ["node","index.js"]
