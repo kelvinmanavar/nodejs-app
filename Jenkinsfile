@@ -10,7 +10,7 @@ pipeline {
             steps {
                 // Checkout your source code from version control system
                 // e.g., git checkout or svn checkout
-                sh 'git 'https://github.com/kelvinmanavar/nodejs-app.git''
+ 
                 // Build the Docker image
                 script {
                     docker.withRegistry('', DOCKER_HUB_CREDENTIALS) {
