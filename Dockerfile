@@ -1,11 +1,10 @@
 # Use an official Node.js runtime as the base image
 FROM node:latest
 
-RUN chown -R node:node /var/www
+
 # Set the working directory in the container
 WORKDIR /var/www
 COPY package*.json ./
-USER node
 # Copy package.json and package-lock.json to the container
 
 # Copy the rest of the app source code to the container
