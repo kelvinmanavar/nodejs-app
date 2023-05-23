@@ -14,7 +14,7 @@ COPY . /var/www
 RUN npm install
 
 # Expose the desired port (replace 3000 with the appropriate port)
-EXPOSE 8000
+EXPOSE 5000
 
 # Specify the command to run your app
 ENTRYPOINT ["npm","start"]
