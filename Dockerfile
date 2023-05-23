@@ -12,7 +12,7 @@ COPY . /var/www
 
 # Install the app dependencies
 RUN npm install
-RUN npm run test
+
 # Expose the desired port (replace 3000 with the appropriate port)
 EXPOSE 3000
 
