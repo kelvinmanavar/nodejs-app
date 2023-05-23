@@ -5,6 +5,15 @@ pipeline {
         DOCKER_IMAGE_NAME = 'kelvinmanavar/node-app' // Replace with your Docker Hub repository name
         DOCKER_IMAGE_TAG = 'latest' // Replace with your desired image tag
     }    
+    stage("Verify SSH connection to server") {
+        steps {
+            sshagent(credentials: ['aws-ec2']) {
+                sh '''
+                    ssh -o StrictHostKeyChecking=no ubuntu@13-127-29-25 whoami
+                '''
+            }
+        }
+    }     
     stages {
         stage('Build') {
             steps {
