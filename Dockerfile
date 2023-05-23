@@ -8,7 +8,7 @@ WORKDIR /var/www
 # Copy package.json and package-lock.json to the container
 
 # Copy the rest of the app source code to the container
-COPY . /var/www
+COPY . .
 
 # Install the app dependencies
 RUN npm install
