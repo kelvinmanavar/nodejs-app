@@ -21,12 +21,6 @@ pipeline {
             }
         }
 
-        stage('Push Image') {
-            steps {
-                // Push the Docker image to a registry
-                sh 'docker push kelvinmanavar/node-app'
-            }
-        }
         stage('Deploy') {
             steps {
                 // Deploy the Docker image to your EC2 instances behind the load balancer
