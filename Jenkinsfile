@@ -27,12 +27,12 @@ pipeline {
                 script {
                     sshagent(['aws-ec2']) {
                         // SSH into each EC2 instance and pull the latest Docker image
-                    sh '''
-                        ssh -o StrictHostKeyChecking=no ubuntu@13-127-29-25 <<EOF
-                        docker pull kelvinmanavar/node-app
-                        docker run -d --name node-app-container -p 8000:8000 kelvinmanavar/node-app
-                        EOF
-                    '''
+                        sh '''
+                            ssh -o StrictHostKeyChecking=no ubuntu@13-127-29-25 <<EOF
+                            docker pull kelvinmanavar/node-app
+                            docker run -d --name node-app-container -p 8000:8000 kelvinmanavar/node-app
+                            EOF
+                        '''
                     }
                 }
             }
