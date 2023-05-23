@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         DOCKER_HUB_CREDENTIALS = 'docker-hub-credentials' // Jenkins credentials ID for Docker Hub
-        DOCKER_IMAGE_NAME = 'kelvinmanavar/node-app' // Replace with your Docker Hub repository name
+        DOCKER_IMAGE_NAME = 'kelvinmanavar/node-app-old' // Replace with your Docker Hub repository name
         DOCKER_IMAGE_TAG = 'latest' // Replace with your desired image tag
     }       
     stages {
@@ -37,7 +37,7 @@ pipeline {
                 script {
                     sshagent(credentials: ['aws-ec2']) {
                         // SSH into each EC2 instance and pull the latest Docker image
-                        sh 'ssh -o StrictHostKeyChecking=no ubuntu@13.127.29.25 "docker pull kelvinmanavar/node-app:${DOCKER_IMAGE_TAG} && docker run -d --name node-app-container -p 80:5000 kelvinmanavar/node-app"'
+                        sh 'ssh -o StrictHostKeyChecking=no ubuntu@13.127.29.25 "docker pull kelvinmanavar/node-app-old:${DOCKER_IMAGE_TAG} && docker run -d --name node-app-old-container -p 80:5000 kelvinmanavar/node-app-old"'
                     }
                 }
             }
